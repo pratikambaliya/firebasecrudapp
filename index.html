@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <title>Firebase CRUD Web App</title>
+</head>
+
+<body>
+    <div class="container container-main">
+        <nav>
+            <div class="register section-block">
+                <a href="#register" class="btn btn-reg">Register</a>
+            </div>
+
+            <div class="view section-block">
+                <a href="#view" class="btn btn-view">view</a>
+            </div>
+
+            <div class="edit section-block">
+                <a href="#edit" class="btn btn-edit">Edit</a>
+            </div>
+
+            <div class="delete section-block">
+                <a href="#delete" class="btn btn-delete">delete</a>
+            </div>
+        </nav>
+
+        <section class="main-block text-center">
+            <h4 class="font-weight-bold">Welcome</h4>
+            <h6>Here's I Present my</h6>
+            <div class="title">
+                <h1 class="font-weight-bolder">CRUD APPLICATION</h1>
+                <p class="text-muted">By Pratik Ambaliya</p>
+                <a href="" class="btn btn-about" data-toggle="modal" data-target="#about">ABOUT</a>
+            </div>
+
+        </section>
+
+
+        </section>
+        <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="modalLongTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLongTitle">CRUD Application By PRATIK AMBALIYA</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <div class="row">
+                            <div class="col-sm-8 text-capitalize text">
+                                <h6>Hello Friends...</h6>
+                                <h6>I am Pratik Ambaliya</h6>
+                                <h6>Here's i present CRUD Application which is develop using javaScript</h6><br>
+                                <h6>This CRUD web application uses Firebase Cloud Firestore Database At the Backend</h6>
+                                <p>Operation Perform: Registration, Login, Delete data with User Authentication, Update
+                                    Data, Real Time Data listener </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="images/jslogo.png" class="float-left" alt="jslog" srcset="" height="150px"
+                                    width="150px">
+                                <img src="images/firebaselogo.png" alt="firebaselogo" srcset="" height="150px"
+                                    width="150px">
+                            </div>
+                        </div>
+                        <h6 class="text-muted text-lowercase">Design Inspiration www.chamedesign.com</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class="btn btn-invert btn-close" data-dismiss="modal">CLose</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Section -->
+        <section id="register" class="content-container">
+            <a href="#" class="btn btn-invert btn-close">Close</a>
+            <div class="content-body">
+                <h6 class="text-sm-right text-md-center">Connect By Register Your Self</h6>
+                <hr>
+                <form id="userform">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="form-group">
+                                <label>First Name:</label>
+                                <input type="text" class="form-control" name="fname" id="fname"
+                                    placeholder="Enter Your Good Name:" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="form-group">
+                                <label>Last Name:</label>
+                                <input type="text" class="form-control" name="lname" id="lname"
+                                    placeholder="Enter Your Surname:" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="form-group">
+                                <label>Mobile Number:</label>
+                                <input type="tel" class="form-control" name="mobile" id="mobile" maxlength="10"
+                                    minlength="10" placeholder="Enter 10 digit Mobile Number" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="form-group">
+                                <label>Date Of Birth:</label>
+                                <input type="date" class="form-control" name="dob" id="dob" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label>Email id:</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                placeholder="Enter Your Email id:" required>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="form-group">
+                                <label>Create Password:</label>
+                                <input type="password" class="form-control" name="pass" id="pass"
+                                    placeholder="Enter Your Password:" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="form-group">
+                                <label>Re-Type Password:</label>
+                                <input type="password" class="form-control" name="repass" id="repass"
+                                    placeholder="Confirm You Password:" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group col">
+                            <button type="submit" class="btn btn-submit">Save</button>
+                            <button type="reset" class="btn btn-submit">Reset</button>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="spinner-border text-success" role="status" id="spinLoad" style="display: none">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="alert alert-success" role="alert" id="saveAlert" style="display: none">
+                                <strong>Saved Successfully!</strong> Thank You For Connect with us.:)
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Data View Section -->
+        <section id="view" class="content-container">
+            <a href="#" class="btn btn-invert btn-close">Close</a>
+            <div class="content-body">
+                <h6 class="text-sm-center">Your Data</h6>
+                <hr>
+                <table class="table" id="tuser">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>UserId</th>
+                            <th>Fname</th>
+                            <th>Lname</th>
+                            <th>Date of Birth</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tdata">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="delete" class="content-container">
+            <a href="#" class="btn btn-invert btn-close">Close</a>
+            <div class="content-body">
+                <h6 class="text-center">Delete Your Connection...</h6>
+                <hr>
+                <form id="loginform">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="logid" id="logid"
+                                    placeholder="Enter Your User id:" required>
+                                <p class="text-danger errorUser" style="display: none">Invalid Emailid Or Password</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="logpass" id="logpass"
+                                    placeholder="Enter Your Password:" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-submit" id="btnlogin">Enter</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="userDeleteDiv" class="text-center mt-5" style="display: none">
+                    <h4>WelCome</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"></h4>
+                        </div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Delete Your Data..?</label>
+                                <button class="btn btn-submit" id="btnDeleteId">Yes, Delete</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>No I change My Mind:)</label>
+                                <button class="btn btn-submit" id="logoutId">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Edit User Section -->
+
+        <section id="edit" class="content-container">
+            <a href="#" class="btn btn-invert btn-close">Close</a>
+            <div class="content-body">
+                <h6 class="text-center">Update Your Detail</h6>
+                <hr>
+                <div id="viewUser">
+                    <h4 class="text-center text-capitalize" id="loginNote">Login from Delete Section to View Data</h4>
+                    <form id="viewform">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>First Name:</label>
+                                        <input type="text" class="form-control" name="fname" id="fnameUpdate"
+                                            placeholder="Enter Your First Name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Last Name:</label>
+                                        <input type="text" class="form-control" name="lname" id="lnameUpdate"
+                                            placeholder="Enter Your Last Name" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mobile Number:</label>
+                                        <input type="tel" class="form-control" name="mobile" id="mobileUpdate"
+                                            maxlength="10" minlength="10" placeholder="Enter Yout Mobile Number"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Date Of Birth:</label>
+                                        <input type="date" class="form-control" name="dob" id="dobUpdate" required>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-sm-12">
+                                    <label>Email id:</label>
+                                    <input type="email" class="form-control" name="email" id="emailUpdate"
+                                        placeholder="Enter Your Email id:" disabled>
+                                </div>
+
+
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Update Password:</label>
+                                        <input type="password" class="form-control" name="pass" id="passUpdate"
+                                            placeholder="Enter Your Password:" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Re-Type Password:</label>
+                                        <input type="password" class="form-control" name="repass" id="repassUpdate"
+                                            placeholder="Confirm You Password:" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col">
+                                    <button type="submit" class="btn btn-submit" id="btnUpdate">Update</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+        $(function () {
+            $('.btn-delete, .btn-edit, .btn-view, .btn-reg').click(function () {
+                var pop = $(this).attr('href');
+                $(pop + '.content-container').toggleClass('show-container');
+
+                $(pop + '.content-container').one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function (event) {
+                    $(this).find('.content-body').fadeIn(200);
+                });
+
+                if ($('body').find('.popup-backdrop').length) {
+                }
+                else {
+                    $('body').append('<div class="popup-backdrop"></div>').fadeIn(200);
+                    $('.popup-backdrop').click(function () {
+                        $(pop).find('.btn-close').click();
+                    });
+                }
+
+                return false;
+            });
+
+
+
+            $('.btn-close').click(function () {
+
+                $('.content-container').removeClass('show-container')
+                $('.popup-backdrop').remove();
+            });
+        });
+
+        $(document).ready(function () {
+            $('.btn-view').click(function () {
+                $("#tuser").find("tr:gt(0)").remove();
+                readData();
+            });
+
+        });
+    </script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"></script>
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

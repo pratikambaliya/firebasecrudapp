@@ -1,0 +1,284 @@
+
+html{
+    height: 100%;
+}
+
+
+body{
+    width: 100%;
+    height: 100%;
+    padding-top: 75px;
+    padding-bottom: 75px; 
+    background: linear-gradient(40deg,#09194d,#32094d,#4d0944);  
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    animation: colorchange 10s ease-in infinite;
+}
+
+@keyframes colorchange
+{
+  0%   {background: rgb(0, 0, 0);}
+  25%  {background: rgb(44, 81, 206);}
+  35%  {background: rgb(0, 74, 87);}
+  75%  {background: rgb(136, 45, 10);}
+  100% {background: rgb(0, 0, 0);;}
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px; 
+}
+
+.container-main{
+    position: relative;
+    height: 100%;
+}
+
+.section-block{
+    position: absolute;
+}
+
+.register.section-block {
+    top:0;
+    left: 0;
+} 
+
+.view.section-block {
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+
+.edit.section-block{
+    bottom: 0;
+    right: 0;
+}
+.delete.section-block{
+    bottom: 0;
+    left: 0;
+}
+
+
+.main-block{
+    position: absolute;
+    top: 50%;
+    margin-top: -110px;
+    width: 100%;
+    color: #fff;
+}
+
+.card{
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+}
+@media (min-width: 360px) {
+    .card {
+      width: 100% } }
+@media (min-width: 576px) {
+    .card {
+      width: 100% } }
+  @media (min-width: 768px) {
+    .card {
+      width: 80%; } }
+  @media (min-width: 992px) {
+    .card {
+      width: 50%; } }
+  @media (min-width: 1200px) {
+    .card {
+      width: 50%; } }
+
+h1{
+    text-align: center;
+}
+.card-title{
+    border-bottom: 2px solid #000000;
+}
+
+.btn{
+    display: inline-block;
+    width: 160px;
+    background: none;
+    padding: 15px;
+    border-radius: 0;
+    border: 2px solid #ffffff ;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    transition: 0.5s;   
+    overflow: hidden;
+    position: relative;
+
+    &:hover{
+        outline: 0;
+        text-decoration: none;
+        background: #fff;
+        color: #000;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        transition: 0.6s;
+    }
+    
+    &.btn-invert{
+        color: #fff;
+        border-color: transparent;
+        background: #31323a;
+    }
+    &#btnlogin{
+        height: 40px;
+        text-align: center;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+}
+
+
+.btn-reg,.btn-edit,.btn-view,.btn-delete{
+    color: #ffffff;
+
+    &:hover{
+        color:#000000;
+   }
+   &::before{
+    bottom: 0;
+    background: #ffffff;
+   }
+}
+
+.btn-reg,.btn-delete{
+    &::before{
+        left: 0;
+        border-radius: 0 50% 50% 0;
+       }
+    }
+.btn-edit,.btn-view{
+    &::before{
+        right: 0;
+        border-radius: 50% 0 0 50%;
+       }
+}
+
+.btn-reg,.btn-edit,.btn-view,.btn-delete{
+    &:hover{
+        &::before{
+           width: 170%;
+        }
+    }
+}
+
+.btn-submit{
+    border: 2px solid #474747;
+    color: #000000;
+    &:hover{
+        color: #ffffff;
+        background: #000000;
+    }
+}
+
+.form-control:focus{
+    outline: 0;
+    border-color: #000000;
+}
+
+.title{
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.content-container{
+    position: absolute;
+    color: #000;
+    background: #fff;
+    width: 160px;
+    height: 50px;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+    transition: height .3s,width .3s,opacity .22s;
+    transition-timing-function: ease-out;
+    .content-body{
+        //padding: 50px;
+        //display: none;
+        overflow-y: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    &.show-container{
+        display: block;
+        opacity: 1;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .btn-close{
+        position: absolute;
+        z-index: 9999;
+    }
+
+    &#register, #register .btn-close{
+        top: 0;
+        left: 0;
+    }
+
+}
+.content-container#view, #view .btn-close{
+    top: 0;
+    right: 0;
+}
+
+.content-container#delete, #delete .btn-close{
+    bottom: 0;
+    left: 0;
+}
+.content-container#edit, #edit .btn-close{
+    bottom: 0;
+    right: 0;
+}
+
+.content-container#about, #about .btn-close{
+    right: 0;
+    top: 0;
+    //text-align: center;
+
+}
+
+.alert{
+    border-radius: 0% !important;
+    text-transform: capitalize;
+}
+
+
+.close-btn{
+    left: 40%;
+}
+.content-body{
+    padding: 25px;
+    display: block;
+   // width: 100%;
+   // height: 100%;
+}
+
+.popup-backdrop {
+    position: fixed;
+    background: rgba(0,0,0,.3);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
